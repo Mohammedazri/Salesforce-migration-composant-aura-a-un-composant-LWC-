@@ -1,0 +1,29 @@
+<aura:component controller="SupportCenterController"
+                implements="flexipage:availableForAllPageTypes,force:appHostable"
+                access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="tickets" type="Case[]"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="totalTickets" type="Integer"/>
+
+    <lightning:button label="Previous"
+                      onclick="{!c.prevPage}"
+                      disabled="{!v.pageNumber == 1}"/>
+
+    <lightning:button label="Next"
+                      onclick="{!c.nextPage}"
+                      disabled="{!v.pageNumber * v.pageSize >= v.totalTickets}"/>
+
+    <aura:iteration items="{!v.tickets}" var="ticket">
+        <div class="ticket-card">
+            <p>
+                <strong>{!ticket.CaseNumber}</strong><br/>
+                {!ticket.Subject} — {!ticket.Status}
+            </p>
+        </div>
+    </aura:iteration>
+
+</aura:component>

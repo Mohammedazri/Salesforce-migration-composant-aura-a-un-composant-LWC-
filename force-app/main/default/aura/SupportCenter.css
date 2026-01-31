@@ -1,0 +1,11 @@
+.THIS .ticket-card {
+    background-color: #f4f6f9;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 8px;
+}
+
+.THIS lightning\\:button {
+    margin-right: 6px;
+}
